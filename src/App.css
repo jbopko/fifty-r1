@@ -35,7 +35,7 @@
     flex: 1;
 
     > #search {
-      padding: 0.5rem 1.0rem;
+      padding: 0.5rem 1rem;
 
       & svg.field-focus {
         color: red;
@@ -43,7 +43,7 @@
 
       > input[type='text'].field-input {
         border: none;
-        width: 0;
+        width: 2rem;
 
         &:not(:placeholder-shown),
         &:focus {
@@ -59,15 +59,14 @@
 
       > #menu-vertical {
         flex: 1;
-        padding: 0.5rem 1.0rem;
+        padding: 0.5rem 1rem;
       }
 
       > #about {
         flex: 1;
-        padding: 0.5rem 1.0rem;
+        padding: 0.5rem 1rem;
       }
     }
-
   }
 
   > #header-right {
@@ -81,11 +80,11 @@
       flex: 1;
 
       > #cart {
-        padding: 0.25rem 1.0rem;
+        padding: 0.25rem 1rem;
       }
 
       & #user-session {
-        padding: 0.25rem 1.0rem;
+        padding: 0.25rem 1rem;
       }
     }
 
@@ -137,12 +136,14 @@
 }
 
 .divider-horizontal {
-  background: linear-gradient(89deg,
-  var(--background) 0%,
-  var(--text) 40%,
-  var(--hlt) 50%,
-  var(--text) 60%,
-  var(--background) 100%);
+  background: linear-gradient(
+    89deg,
+    var(--background) 0%,
+    var(--text) 40%,
+    var(--hlt) 50%,
+    var(--text) 60%,
+    var(--background) 100%
+  );
 
   margin-block: 1px 1px;
   width: 100%;
@@ -151,12 +152,14 @@
 }
 
 .divider-vertical {
-  background: linear-gradient(179deg,
-  var(--background) 0%,
-  var(--text) 40%,
-  var(--hlt) 50%,
-  var(--text) 60%,
-  var(--background) 100%);
+  background: linear-gradient(
+    179deg,
+    var(--background) 0%,
+    var(--text) 40%,
+    var(--hlt) 50%,
+    var(--text) 60%,
+    var(--background) 100%
+  );
 
   width: 1px;
   height: 100%;

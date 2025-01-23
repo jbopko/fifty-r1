@@ -5,14 +5,15 @@
   --font-mono: Monaco, Courier New, monospace;
   --font-fancy: Papyrus, serif;
   --shadow: 4px 4px 8px rgb(0, 0, 0, 0.2), -4px -4px 8px rgb(0, 0, 0, 0.1);
-  --shadow-hover: 4px 4px 8px rgb(0, 0, 0, 0.1), -4px -4px 8px rgb(0, 0, 0, 0.05);
+  --shadow-hover: 4px 4px 8px rgb(0, 0, 0, 0.1),
+  -4px -4px 8px rgb(0, 0, 0, 0.05);
   --radius: 0.5rem;
 
   --eggshell: #F0EAD6AA;
   --text: darkblue;
   --background: snow;
   --platform: ghostwhite;
-  --hlt: #4285F4;;
+  --hlt: #4285F4;
   --warn: #EC7211;
   --err: red;
   --border: 1px solid color-mix(in srgb, var(--text) 30%, transparent);

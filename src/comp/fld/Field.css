@@ -1,0 +1,65 @@
+.field {
+  --field-bg-color: var(--background);
+  --field-color: var(--text);
+  --field-height: 2rem;
+
+  position: relative;
+  padding: 0;
+
+  background-color: transparent;
+
+  > input[type='text'].field-input {
+    padding-left: var(--field-height);
+    outline: none;
+    border: var(--border);
+    border-radius: var(--radius);
+    background-color: var(--field-bg-color);
+    color: var(--field-color);
+    font-size: 1rem;
+    line-height: var(--field-height);
+    width: 100%;
+
+    &:not(:placeholder-shown),
+    &:focus {
+      background-color: var(--field-bg-color);
+      outline: var(--border);
+
+      + .field-submit {
+        visibility: visible;
+        opacity: 0.75;
+        transition: opacity 2000ms 250ms ease;
+      }
+    }
+
+    &::placeholder {
+      color: var(--text);
+      opacity: 0.5;
+    }
+  }
+
+  > .field-msg {
+    font-size: x-small;
+    font-style: italic;
+    display: block;
+    visibility: hidden;
+  }
+
+  & img {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    height: var(--field-height);
+    width: var(--field-height);
+    opacity: 0.5;
+
+    &.field-focus {
+      left: 0;
+    }
+
+    &.field-submit {
+      right: 0;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
