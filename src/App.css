@@ -1,0 +1,281 @@
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+
+  &.loggedIn {
+    & #user-avatar > .spinner {
+      transform: rotateX(180deg);
+    }
+
+    & #user-login {
+      display: none;
+    }
+
+    & #account-summary {
+      display: block;
+    }
+  }
+
+  &.hasItems {
+    & #cart-avatar > .spinner {
+      transform: rotateX(180deg);
+    }
+  }
+}
+
+#header {
+  display: flex;
+
+  > #header-left {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+
+    > #search {
+      padding: 0.5rem 1.0rem;
+
+      & svg.field-focus {
+        color: red;
+      }
+
+      > input[type='text'].field-input {
+        border: none;
+        width: 0;
+
+        &:not(:placeholder-shown),
+        &:focus {
+          animation: expand 500ms;
+          animation-fill-mode: forwards;
+          animation-iteration-count: 1;
+        }
+      }
+    }
+
+    > #menu-top-left {
+      display: flex;
+
+      > #menu-vertical {
+        flex: 1;
+        padding: 0.5rem 1.0rem;
+      }
+
+      > #about {
+        flex: 1;
+        padding: 0.5rem 1.0rem;
+      }
+    }
+
+  }
+
+  > #header-right {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: end;
+
+    > #menu-top-right {
+      display: flex;
+      flex: 1;
+
+      > #cart {
+        padding: 0.25rem 1.0rem;
+      }
+
+      & #user-session {
+        padding: 0.25rem 1.0rem;
+      }
+    }
+
+    > #status {
+      & #crumbs {
+        font-size: small;
+        font-family: var(--font-sans), sans-serif;
+        padding-right: 0.25rem;
+        text-align: right;
+        text-transform: uppercase;
+
+        & #activeSection {
+        }
+
+        & #activeTopic {
+        }
+
+        > pre {
+          visibility: hidden;
+        }
+
+        & #bc-separator {
+        }
+      }
+    }
+  }
+
+  & svg {
+    height: 2rem;
+    width: 2rem;
+    /*padding: 0.25rem 0.5rem;*/
+  }
+}
+
+#content {
+  text-align: center;
+}
+
+.active {
+  color: var(--hlt);
+}
+
+.border {
+  border: var(--border);
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.divider-horizontal {
+  background: linear-gradient(89deg,
+  var(--background) 0%,
+  var(--text) 40%,
+  var(--hlt) 50%,
+  var(--text) 60%,
+  var(--background) 100%);
+
+  margin-block: 1px 1px;
+  width: 100%;
+  height: 1px;
+  justify-self: center;
+}
+
+.divider-vertical {
+  background: linear-gradient(179deg,
+  var(--background) 0%,
+  var(--text) 40%,
+  var(--hlt) 50%,
+  var(--text) 60%,
+  var(--background) 100%);
+
+  width: 1px;
+  height: 100%;
+  margin-inline: 10px 10px;
+}
+
+.hover-for-menu {
+  cursor: pointer;
+
+  &:hover .menu {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    /* z-index: 1; */
+    position: absolute;
+    top: 1rem;
+    margin: 0;
+  }
+}
+
+.flex-row,
+.flex-col {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+  flex: 1;
+}
+
+.badge {
+  position: absolute;
+  top: -0.25rem;
+  right: 0.5rem;
+  font-size: x-small;
+  color: var(--text);
+}
+
+.links {
+  width: 100%;
+  display: flex;
+}
+
+.link {
+  white-space: nowrap;
+  flex: 1;
+  font-size: small;
+
+  &.left {
+    text-align: left;
+  }
+
+  &.right {
+    text-align: right;
+  }
+
+  cursor: pointer;
+
+  &:hover {
+    color: var(--hlt);
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+#footer {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  text-align: center;
+
+  font-family: var(--font-mono), monospace;
+  font-size: x-small;
+
+  > #footer-left {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+  }
+
+  > #footer-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+  }
+
+  > .mid {
+    flex: 1;
+    align-content: end;
+  }
+}
+
+/*.logo {*/
+/*  transition: filter 300ms;*/
+/*  will-change: filter;*/
+/*}*/
+
+/*@keyframes logo-spin {*/
+/*  from {*/
+/*    transform: rotate(0deg);*/
+/*  }*/
+/*  to {*/
+/*    transform: rotate(360deg);*/
+/*  }*/
+/*}*/
+
+/*@media (prefers-reduced-motion: no-preference) {*/
+/*  a:nth-of-type(2) .logo {*/
+/*    animation: logo-spin infinite 20s linear;*/
+/*  }*/
+/*}*/
