@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "clean": "rm -frd ./dist && rm -frd ./node_modules && rm -frd ./package-lock.json && du -h --max-depth=1",
-    "buildfresh": "npm install && npm run lint && npm run build",
-    "dev": "vite",
-    "compile": "tsc -b",
     "lint": "eslint --fix .",
+    "compile": "tsc -b",
     "build": "npm run lint && npm run compile && vite build",
+    "check": "npm install && npm run build",
+    "start": "vite",
     "preview": "vite preview"
   },
   "dependencies": {

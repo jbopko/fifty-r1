@@ -1,0 +1,40 @@
+.menu {
+  white-space: nowrap;
+  text-transform: uppercase;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  cursor: pointer;
+
+  > .title {
+    /*font-size: large;*/
+    /*font-weight: normal;*/
+  }
+
+  > .menu-items {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    min-width: 120px;
+    border: var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    color: var(--text);
+    background-color: var(--platform);
+
+    > .menu-item {
+      padding: 0.5rem 1.0rem;
+
+      &:hover {
+      }
+    }
+  }
+
+  &:hover > .menu-items {
+    display: block;
+    animation: fade-in ease 200ms;
+
+    > .menu-item {
+      animation: fade-in linear 500ms;
+    }
+  }
+}

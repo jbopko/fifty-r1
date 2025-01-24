@@ -1,0 +1,77 @@
+.button {
+  --btn-bg: var(--hlt);
+  --btn-color: var(--background);
+  --btn-font: var(--font-sans);
+  --btn-shadow: var(--shadow);
+  --btn-border: var(--border);
+  border-radius: 5px;
+
+  position: relative;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+
+  min-height: 40px;
+
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  font-family: var(--font), serif;
+  color: var(--btn-color);
+  background-color: var(--btn-bg);
+  box-shadow: var(--btn-shadow);
+  border: none;
+  outline: var(--border);
+
+  transform: translateY(0px);
+  transition: all 200ms linear;
+  touch-action: manipulation;
+
+  &.submit {
+    font-size: large;
+    font-weight: 400;
+    width: 100%;
+  }
+
+  &.warn {
+    background-color: var(--warn);
+  }
+
+  &.active {
+    color: var(--warn);
+  }
+
+  &:active {
+    color: var(--warn);
+    transform: translateY(2px);
+
+    &.warn {
+      color: var(--text);
+    }
+  }
+
+  &:focus {
+    border: var(--border);
+  }
+
+  &:hover {
+    opacity: 90%;
+  }
+
+  &.notified {
+    > .badge {
+      color: var(--text);
+    }
+  }
+
+  > .badge {
+    position: absolute;
+    top: 0;
+    right: 0.5rem;
+    font-size: small;
+    font-weight: bold;
+    color: var(--warn);
+  }
+}

@@ -1,0 +1,104 @@
+#user-session {
+  padding: 0.25rem 1rem;
+}
+
+#cart {
+  padding: 0.25rem 1rem;
+}
+
+#cart-summary {
+  text-align: center;
+}
+
+#status {
+  & #crumbs {
+    font-size: small;
+    padding-right: 0.25rem;
+    text-align: right;
+    text-transform: uppercase;
+
+    & #activeSection {
+    }
+
+    & #activeTopic {
+    }
+
+    > pre {
+      visibility: hidden;
+    }
+
+    & #bc-separator {
+    }
+  }
+}
+
+#header {
+  display: flex;
+
+  > .header-mid {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex: 1;
+  }
+
+  > #header-left {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    > #nav-left {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+
+      > #search {
+        flex: 0;
+
+        &.focused {
+          flex: 3;
+        }
+      }
+
+      > #contact {
+        flex: 1;
+        padding: 0.5rem 1rem;
+      }
+    }
+
+    > #sidebar {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      text-transform: uppercase;
+      visibility: hidden;
+
+      > #menu-vertical {
+        flex: 1;
+      }
+
+      > #theme {
+        flex: 1;
+        font-size: small;
+      }
+    }
+  }
+
+  > #header-right {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: end;
+
+    > #nav-right {
+      display: flex;
+      flex: 1;
+    }
+  }
+
+  & svg {
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,28 @@
+.platform {
+  position: relative;
+  background-color: var(--platform);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+
+  padding: 1rem;
+  margin: 1rem;
+  width: fit-content;
+  height: fit-content;
+
+  svg.svg-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 24px;
+    width: 24px;
+    padding: 0.25rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--err);
+      color: var(--background);
+      border-radius: 0 var(--radius) 0 0;
+    }
+  }
+}

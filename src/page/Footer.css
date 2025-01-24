@@ -1,0 +1,43 @@
+#footer {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  text-align: center;
+
+  font-size: x-small;
+
+  > #footer-left {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+  }
+
+  > #footer-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+  }
+
+  > .mid {
+    flex: 1;
+    align-content: end;
+  }
+}
+
+/*.logo {*/
+/*  transition: filter 300ms;*/
+/*  will-change: filter;*/
+/*}*/
+
+/*@keyframes logo-spin {*/
+/*  from {*/
+/*    transform: rotate(0deg);*/
+/*  }*/
+/*  to {*/
+/*    transform: rotate(360deg);*/
+/*  }*/
+/*}*/
+

@@ -2,32 +2,42 @@
   --field-bg-color: var(--background);
   --field-color: var(--text);
   --field-height: 2rem;
+  margin: 0.25rem;
 
   position: relative;
   padding: 0;
-
   background-color: transparent;
 
   > input[type='text'].field-input {
-    padding-left: var(--field-height);
+    position: absolute;
+    top: 0;
+    width: 0;
+
     outline: none;
-    border: var(--border);
+    border: none;
     border-radius: var(--radius);
+
     background-color: var(--field-bg-color);
     color: var(--field-color);
-    font-size: 1rem;
+
+    font-size: 1.1rem;
     line-height: var(--field-height);
-    width: 100%;
 
     &:not(:placeholder-shown),
+    &.focused,
     &:focus {
       background-color: var(--field-bg-color);
       outline: var(--border);
 
+      width: calc(100% - (2 * var(--field-height)));
+      padding-left: var(--field-height);
+      padding-right: var(--field-height);
+      transition: width 500ms;
+
       + .field-submit {
         visibility: visible;
-        opacity: 0.75;
-        transition: opacity 2000ms 250ms ease;
+        opacity: 1;
+        transition: opacity 1000ms 500ms;
       }
     }
 
@@ -42,24 +52,35 @@
     font-style: italic;
     display: block;
     visibility: hidden;
+
+    &.active {
+      visibility: visible;
+      color: var(--hlt);
+    }
+
+    &.invalid {
+      visibility: visible;
+      color: var(--warn);
+    }
   }
 
-  & img {
+  > .field-submit,
+  > .field-focus {
     position: absolute;
     cursor: pointer;
     top: 0;
     height: var(--field-height);
     width: var(--field-height);
-    opacity: 0.5;
+    z-index: 1;
+  }
 
-    &.field-focus {
-      left: 0;
-    }
+  > .field-focus {
+    left: 0;
+  }
 
-    &.field-submit {
-      right: 0;
-      opacity: 0;
-      visibility: hidden;
-    }
+  > .field-submit {
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
   }
 }

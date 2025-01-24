@@ -1,0 +1,23 @@
+.card {
+  > .spinner {
+    transition: transform 250ms;
+    transform-style: preserve-3d;
+    position: relative;
+
+    > .face, > .back {
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    > .back {
+      transform: rotateX(180deg);
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  &.flip > .spinner {
+    transform: rotateX(180deg);
+  }
+}
