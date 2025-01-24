@@ -1,9 +1,25 @@
+#search {
+  flex: 0;
+  margin: 0.25rem;
+
+  &.focused {
+    flex: 3;
+  }
+}
+
+#contact {
+  flex: 1;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-top: 0.5rem;
+}
+
 #user-session {
-  padding: 0.25rem 1rem;
+  padding: 0 1rem;
 }
 
 #cart {
-  padding: 0.25rem 1rem;
+  padding: 0 1rem;
 }
 
 #cart-summary {
@@ -32,73 +48,19 @@
   }
 }
 
-#header {
+#sidebar {
   display: flex;
+  flex-direction: row;
+  flex: 1;
+  text-transform: uppercase;
+  visibility: hidden;
 
-  > .header-mid {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+  > #menu-vertical {
     flex: 1;
   }
 
-  > #header-left {
-    display: flex;
-    flex-direction: column;
+  > #theme {
     flex: 1;
-
-    > #nav-left {
-      display: flex;
-      flex-direction: row;
-      flex: 1;
-
-      > #search {
-        flex: 0;
-
-        &.focused {
-          flex: 3;
-        }
-      }
-
-      > #contact {
-        flex: 1;
-        padding: 0.5rem 1rem;
-      }
-    }
-
-    > #sidebar {
-      display: flex;
-      flex-direction: row;
-      flex: 1;
-      text-transform: uppercase;
-      visibility: hidden;
-
-      > #menu-vertical {
-        flex: 1;
-      }
-
-      > #theme {
-        flex: 1;
-        font-size: small;
-      }
-    }
-  }
-
-  > #header-right {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    align-items: end;
-
-    > #nav-right {
-      display: flex;
-      flex: 1;
-    }
-  }
-
-  & svg {
-    height: 2rem;
-    width: 2rem;
-    cursor: pointer;
+    font-size: small;
   }
 }

@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <div id='header'>
       <div id='header-left'>
-        <div id='nav-left'>
+        <div id='top-left'>
           <Search/>
           <Contact/>
         </div>
@@ -20,9 +20,13 @@ const Header = () => {
           <div id='theme'></div>
         </div>
       </div>
-      <div id='header-mid'>{count}</div>
+      <div id='header-mid'>
+        <div className='platform'>
+          <h1>${count}FiftyPix!</h1>
+        </div>
+      </div>
       <div id='header-right'>
-        <div id='nav-right'>
+        <div id='top-right'>
           <Cart/>
           <Account/>
         </div>

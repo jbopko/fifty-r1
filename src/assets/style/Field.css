@@ -1,12 +1,13 @@
 .field {
-  --field-bg-color: var(--background);
-  --field-color: var(--text);
   --field-height: 2rem;
-  margin: 0.25rem;
-
+  border: none;
+  border-radius: var(--radius);
+  outline: none;
   position: relative;
-  padding: 0;
-  background-color: transparent;
+
+  &.focused {
+    box-shadow: var(--shadow);
+  }
 
   > input[type='text'].field-input {
     position: absolute;
@@ -15,21 +16,20 @@
 
     outline: none;
     border: none;
+    font-size: 1.5rem;
+    font-family: var(--font-sans), sans-serif;
+    background-color: transparent;
     border-radius: var(--radius);
-
-    background-color: var(--field-bg-color);
-    color: var(--field-color);
-
-    font-size: 1.1rem;
-    line-height: var(--field-height);
+    color: var(--text);
 
     &:not(:placeholder-shown),
     &.focused,
     &:focus {
-      background-color: var(--field-bg-color);
+      background-color: var(--background);
       outline: var(--border);
 
       width: calc(100% - (2 * var(--field-height)));
+      line-height: var(--field-height);
       padding-left: var(--field-height);
       padding-right: var(--field-height);
       transition: width 500ms;
@@ -42,7 +42,7 @@
     }
 
     &::placeholder {
-      color: var(--text);
+      /*color: var(--text);*/
       opacity: 0.5;
     }
   }
@@ -60,7 +60,7 @@
 
     &.invalid {
       visibility: visible;
-      color: var(--warn);
+      color: var(--err);
     }
   }
 
@@ -69,6 +69,7 @@
     position: absolute;
     cursor: pointer;
     top: 0;
+
     height: var(--field-height);
     width: var(--field-height);
     z-index: 1;

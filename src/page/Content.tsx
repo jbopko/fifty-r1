@@ -18,10 +18,6 @@ const Content = () => {
   return (
     <div id='content'>
       <div className='platform'>
-        <h1>FiftyPix!</h1>
-      </div>
-
-      <div className='platform'>
         <MyButton/>
       </div>
       <CartSummary/>

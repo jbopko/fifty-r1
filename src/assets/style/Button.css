@@ -1,16 +1,16 @@
 .button {
-  --btn-bg: var(--hlt);
-  --btn-color: var(--background);
-  --btn-font: var(--font-sans);
-  --btn-shadow: var(--shadow);
-  --btn-border: var(--border);
-  border-radius: 5px;
+  font-family: var(--font-sans), sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  outline: var(--border);
 
   position: relative;
   margin: 0;
   padding: 0.5rem 1rem;
   cursor: pointer;
-
   min-height: 40px;
 
   text-align: center;
@@ -18,12 +18,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 
-  font-family: var(--font), serif;
-  color: var(--btn-color);
-  background-color: var(--btn-bg);
-  box-shadow: var(--btn-shadow);
   border: none;
-  outline: var(--border);
 
   transform: translateY(0px);
   transition: all 200ms linear;
@@ -35,16 +30,13 @@
     width: 100%;
   }
 
-  &.warn {
-    background-color: var(--warn);
-  }
-
+  &.warn,
   &.active {
-    color: var(--warn);
+    color: var(--hlt);
   }
 
   &:active {
-    color: var(--warn);
+    color: var(--hlt);
     transform: translateY(2px);
 
     &.warn {
@@ -54,6 +46,7 @@
 
   &:focus {
     border: var(--border);
+    font-style: italic;
   }
 
   &:hover {
@@ -72,6 +65,6 @@
     right: 0.5rem;
     font-size: small;
     font-weight: bold;
-    color: var(--warn);
+    color: var(--hlt);
   }
 }

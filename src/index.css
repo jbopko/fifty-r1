@@ -6,13 +6,12 @@
   --shadow-hover: 4px 4px 8px rgb(0, 0, 0, 0.1), -4px -4px 8px rgb(0, 0, 0, 0.05);
   --radius: 0.5rem;
 
-  --text: black;
-  --background: lightgrey;
-  --platform: lightgrey;
-  --hlt: darkblue;
-  --warn: darkblue;
+  --text: darkblue;
+  --background: white;
+  --hlt: tomato;
+  --warn: orangered;
   --err: crimson;
-  --border: 1px solid color-mix(in srgb, var(--text) 30%, transparent);
+  --border: 1px solid color-mix(in srgb, var(--text) 20%, transparent);
 
   font-family: var(--font-sans), sans-serif;
   font-synthesis: none;
@@ -34,8 +33,14 @@ a {
   color: var(--text);
   text-decoration: none;
   text-transform: uppercase;
+
+  &:hover {
+    text-decoration: underline var(--text) dotted 1px;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font), serif;
+  margin: 0;
+  padding: 0;
 }
