@@ -1,17 +1,24 @@
-import {MouseEvent} from 'react'
+import {MouseEvent} from 'react';
+import '../../assets/style/Card.css'
 
-function clickCart(e: MouseEvent) {
-  console.log(e)
-  const element = document.querySelector("#cart")
-  if (element) {
-    element.classList.toggle('flip')
+function clickAvatar(event: MouseEvent<HTMLDivElement, Event>) {
+  const cart = document.querySelector("#cart")
+  if (cart && cart.classList.contains('hasItems')) {
+    // show cart summary
+    const cartSummary = document.querySelector("#cart-summary")
+    if (cartSummary) {
+      cartSummary.classList.toggle('hidden')
+    }
+  } else {
+    // go to the store
   }
+  if (event) {event.stopPropagation()}
 }
 
-const Cart = () => {
+const CartAvatar = () => {
   return (
-    <div id='cart' className='card' onClick={(e) => {
-      clickCart(e)
+    <div id='cart-avatar' className='card' onClick={(event) => {
+      clickAvatar(event)
     }}>
       <div className='spinner'>
         <div className='face'>
@@ -35,10 +42,10 @@ const Cart = () => {
             <circle cx='19' cy='21' r='1'/>
             <path d='M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12'/>
           </svg>
+          <div id='cart-avatar-badge' className='badge'></div>
         </div>
       </div>
     </div>
   )
 }
-
-export default Cart
+export default CartAvatar

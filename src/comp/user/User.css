@@ -1,0 +1,56 @@
+#user {
+  display: none;
+}
+
+#user-profile {
+  position: absolute;
+  z-index: 1;
+  width: 250px;
+  top: 2rem;
+  right: 0;
+
+  & .button.submit {
+    margin-top: 1rem;
+  }
+
+  & img {
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+    object-fit: contain;
+    width: inherit;
+  }
+
+  & #account-summary-manage {
+    white-space: normal;
+    padding: 0.5rem;
+    align-content: end;
+  }
+
+  & #btn-logout { flex: 1; }
+}
+
+#user-login-other {
+  text-align: center;
+  top: 2rem;
+}
+
+#user-login {
+  position: absolute;
+  z-index: 1;
+  width: 250px;
+  top: 2rem;
+  right: 0;
+  padding: 1rem;
+
+  .fields {
+    margin: 1rem 0 3rem 0;
+
+    .field {
+      margin: 2rem 0;
+    }
+  }
+}
+
+#user-avatar {
+}
+

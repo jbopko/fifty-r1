@@ -1,6 +1,6 @@
 .platform {
   font-family: var(--font-sans), sans-serif;
-  background-color: var(--background);
+  background-color: var(--platform);
   color: var(--text);
   border: var(--border);
   border-radius: var(--radius);
@@ -12,7 +12,7 @@
   width: fit-content;
   height: fit-content;
 
-  svg.svg-close {
+  & svg.svg-close {
     position: absolute;
     top: 0;
     right: 0;

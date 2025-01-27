@@ -1,17 +1,17 @@
-import Content from './page/Content.tsx'
-import Footer from './page/Footer.tsx'
-import Head from './page/Header.tsx'
-import './assets/style/Button.css'
-import './assets/style/Card.css'
-
+import Cart from './comp/cart/Cart';
+import User from './comp/user/User';
+import Content from './page/Content'
+import Header from './page/Header'
 import "./App.css"
 
 function App() {
   return (
     <>
-      <Head/>
+      <User/>
+      <Cart/>
+      <Header/>
       <Content/>
-      <Footer/>
+      {/*<Footer/>*/}
     </>
   )
 }

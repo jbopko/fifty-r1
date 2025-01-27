@@ -1,0 +1,29 @@
+#cart {
+  display: none;
+}
+
+#cart-avatar {
+}
+
+#cart-summary {
+  position: absolute;
+  z-index: 1;
+  width: 250px;
+  top: 2rem;
+  right: 0;
+  text-align: center;
+
+  & .items {
+    padding: 2rem;
+    margin: 2rem;
+  }
+
+  & .subtotal {
+    padding: 0 1rem;
+    margin: 1rem;
+  }
+
+  & .button.submit {
+    margin-top: 1rem;
+  }
+}

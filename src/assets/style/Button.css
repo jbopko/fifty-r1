@@ -21,7 +21,7 @@
   border: none;
 
   transform: translateY(0px);
-  transition: all 200ms linear;
+  transition: all 50ms linear;
   touch-action: manipulation;
 
   &.submit {

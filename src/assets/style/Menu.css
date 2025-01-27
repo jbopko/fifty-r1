@@ -1,20 +1,21 @@
 .menu {
   white-space: nowrap;
   text-transform: uppercase;
-  margin: 1rem;
-  cursor: pointer;
 
   > .title {
+    margin: 0;
+    padding: 0 0 0 0.5rem;
+  }
+
+  > .menu-items.sub {
+    left: 30%;
   }
 
   > .menu-items {
     display: none;
     position: absolute;
-    z-index: 1;
     min-width: 10rem;
     font-family: var(--font-sans), sans-serif;
-    font-size: larger;
-    font-weight: normal;
     background-color: var(--background);
     color: var(--text);
     border: var(--border);
@@ -22,10 +23,10 @@
     box-shadow: var(--shadow);
 
     > .menu-item {
-      padding: 0.5rem 3rem 0.5rem 1rem;
+      padding: 0.5rem 2rem;
 
       &:hover {
-        text-decoration: underline var(--text) dotted 1px;
+        color: var(--hlt);
       }
     }
   }
@@ -37,5 +38,20 @@
     > .menu-item {
       animation: fade-in linear 500ms;
     }
+  }
+}
+
+.hover-for-menu {
+  cursor: pointer;
+
+  &:hover .menu {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    margin: 0;
   }
 }
