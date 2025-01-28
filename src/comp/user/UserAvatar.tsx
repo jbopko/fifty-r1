@@ -29,18 +29,6 @@ function clickAvatar(event: MouseEvent) {
   if (event) {event.stopPropagation()}
 }
 
-// function Logout(event: MouseEvent) {
-//   const user = document.querySelector("#user")
-//   if (user && user.classList.contains('isLoggedIn')) {
-//     // show user login form
-//     const userLogin = document.querySelector("#user-login")
-//     if (userLogin) {
-//       userLogin.classList.toggle('hidden')
-//     }
-//   }
-//   if (event) {event.stopPropagation()}
-// }
-
 const UserAvatar = () => {
   return (
     <div id='user-avatar' className='card' onClick={(e) => {

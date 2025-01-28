@@ -1,5 +1,8 @@
 :root {
   --color-busCard: #E6E2D3;
+  --color-eggshell: #F0EAD6AA;
+  --color-lightblue: #E8EFF9;
+  --color-lightbluegrey: #D8DFE9;
 
   --font: Alice, Times New Roman, serif;
   --font-sans: Segoe UI, Arial, sans-serif;
@@ -9,10 +12,10 @@
   --radius: 0.5rem;
 
   --text: darkblue;
-  --background: ghostwhite;
-  --platform: ghostwhite;
+  --background: azure;
+  --platform: var(--color-lightblue);
   --hlt: blue;
-  --err: red;
+  --err: crimson;
   --border: 1px solid color-mix(in srgb, var(--text) 40%, transparent);
   --outline: 1px solid var(--text);
 

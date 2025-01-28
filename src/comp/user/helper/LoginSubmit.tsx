@@ -1,52 +1,30 @@
 import {MouseEvent} from 'react';
 
 export const Login = (event: MouseEvent<HTMLElement, Event> | null) => {
-  const storageValue = localStorage.getItem('isAuthenticated');
-  let isAuthenticated = Boolean(storageValue);
+  // const storageValue = localStorage.getItem('isAuthenticated');
+  const root = document.querySelector("#root")!
+  const user = root.querySelector("#user")
 
-  if (isAuthenticated) {
-    console.log('isAuthenticated');
-  } else {
-    isAuthenticated = true
-  }
-
-  const root = document.querySelector("#root")
-  if (root) {
-    const user = root.querySelector("#user")
-    if (user) {
-      const element = user.querySelector("#userId")
-      if (element) {
-        if (isAuthenticated) {
-          if (!root.classList.contains("isLoggedIn")) {
-            root.classList.add("isLoggedIn")
-            user.classList.add("isLoggedIn")
-            Close('user-login');
-          }
-        } else {
-          if (root.classList.contains("isLoggedIn")) {
-            root.classList.remove("isLoggedIn")
-            user.classList.remove("isLoggedIn")
-          }
-        }
-      }
+  if (user) {
+    if (!user.classList.contains("isLoggedIn")) {
+      root.classList.add("isLoggedIn")
+      user.classList.add("isLoggedIn")
     }
+    Close('user-login');
   }
   if (event) {event.stopPropagation()}
 }
 
 export const Logout = (event: MouseEvent<HTMLElement, Event>) => {
-  const root = document.querySelector("#root")
-
-  if (root) {
+  const root = document.querySelector("#root")!
+  const user = root.querySelector("#user")
+  if (user) {
     root.classList.remove("isLoggedIn")
-    const user = root.querySelector("#user")
-    if (user) {
-      user.classList.remove("isLoggedIn")
-      const element = user.querySelector("#userId")
-      if (element) {
-        element.textContent = 'guest'
-        Close('user-profile');
-      }
+    user.classList.remove("isLoggedIn")
+    const element = user.querySelector("#userId")
+    if (element) {
+      element.textContent = ''
+      Close('user-profile');
     }
   }
   if (event) {event.stopPropagation()}
