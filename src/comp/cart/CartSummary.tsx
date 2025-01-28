@@ -1,8 +1,14 @@
 import '../../assets/style/Platform.css'
+import {CartProps} from './Cart.tsx';
 import {clearCart} from './helper/ClearCart'
 import {closeSummary} from './helper/CloseSummary';
 
-const CartSummary = () => {
+const CartSummary = (props: CartProps) => {
+
+  if (props) {
+    console.log(props.appHandler.name);
+  }
+
   return (
     <div id='cart-summary' className='platform hidden'>
       <div onClick={(event) => {

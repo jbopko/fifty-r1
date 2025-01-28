@@ -1,45 +1,45 @@
-import {MouseEvent} from 'react';
-
-export const Login = (event: MouseEvent<HTMLElement, Event> | null) => {
-  // const storageValue = localStorage.getItem('isAuthenticated');
-  const root = document.querySelector("#root")!
-  const user = root.querySelector("#user")
-
-  if (user) {
-    if (!user.classList.contains("isLoggedIn")) {
-      root.classList.add("isLoggedIn")
-      user.classList.add("isLoggedIn")
-    }
-    Close('user-login');
-  }
-  if (event) {event.stopPropagation()}
-}
-
-export const Logout = (event: MouseEvent<HTMLElement, Event>) => {
-  const root = document.querySelector("#root")!
-  const user = root.querySelector("#user")
-  if (user) {
-    root.classList.remove("isLoggedIn")
-    user.classList.remove("isLoggedIn")
-    const element = user.querySelector("#userId")
-    if (element) {
-      element.textContent = ''
-      Close('user-profile');
-    }
-  }
-  if (event) {event.stopPropagation()}
-}
-
-export const Close = (id: string) => {
-  if (id) {
-    const mySelf = document.getElementById(id)
-    if (mySelf) {
-      mySelf.classList.add('hidden')
-    }
-  }
-}
-
-
+// import {MouseEvent} from 'react';
+//
+// export const Login = (event: MouseEvent<HTMLElement, Event> | null) => {
+//   // const storageValue = localStorage.getItem('isAuthenticated');
+//   const root = document.querySelector("#root")!
+//   const user = root.querySelector("#user")
+//
+//   if (user) {
+//     if (!user.classList.contains("isLoggedIn")) {
+//       root.classList.add("isLoggedIn")
+//       user.classList.add("isLoggedIn")
+//     }
+//     Close('user-login');
+//   }
+//   if (event) {event.stopPropagation()}
+// }
+//
+// export const Logout = (event: MouseEvent<HTMLElement, Event>) => {
+//   const root = document.querySelector("#root")!
+//   const user = root.querySelector("#user")
+//   if (user) {
+//     root.classList.remove("isLoggedIn")
+//     user.classList.remove("isLoggedIn")
+//     const element = user.querySelector("#userId")
+//     if (element) {
+//       element.textContent = ''
+//       Close('user-profile');
+//     }
+//   }
+//   if (event) {event.stopPropagation()}
+// }
+//
+// export const Close = (id: string) => {
+//   if (id) {
+//     const mySelf = document.getElementById(id)
+//     if (mySelf) {
+//       mySelf.classList.add('hidden')
+//     }
+//   }
+// }
+//
+//
 // function addToCart(event: MouseEvent) {
 //   // Each component has its own version of state
 //   // with this mechanism

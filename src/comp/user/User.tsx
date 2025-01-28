@@ -1,22 +1,23 @@
 import './User.css'
 
-interface UserProps {
-  appHandler: (input: boolean) => void;
+export interface UserProps {
+  appHandler: (input: UserInterface) => void,
+  user: UserInterface
 }
 
-function checkClassList(): boolean {
-  const currentUser = document.querySelector('#user')
-  if (currentUser) {
-    return currentUser.classList.contains('isLoggedIn')
+export interface UserInterface {
+  username: string,
+  isLoggedIn: boolean,
+}
+
+const User = (user: UserInterface) => {
+  if (user) {
+    console.log(user.username);
   }
-  return false
-}
-
-const User = ({appHandler}: UserProps) => {
-  appHandler(checkClassList())
   return (
+
     <div id='user' className='border'>
-      <div id='userId'>guest</div>
+      <div id='userId'>{user.username}</div>
     </div>
   );
 }

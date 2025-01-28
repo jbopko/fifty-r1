@@ -1,24 +1,30 @@
 import {useState} from "react";
-import Cart from './comp/cart/Cart';
-import User from './comp/user/User';
+import {CartInterface} from './comp/cart/Cart';
+import {UserInterface} from './comp/user/User.tsx';
 import Content from './page/Content';
 import Header from './page/Header';
 import "./App.css"
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState({username: 'guest', isLoggedIn: false});
+  const [cart, setCart] = useState({items: ['']});
 
-  function setLoggedIn(input: boolean) {
-    setIsLoggedIn(input);
+  function updateUser(update: UserInterface) {
+    setUser(update);
+  }
+
+  function updateCart(update: CartInterface) {
+    setCart(update);
   }
 
   return (
+
     <>
-      <Cart/>
-      <Header/>
+      <Header
+        userProps={{user: user, appHandler: updateUser}}
+        cartProps={{cart: cart, appHandler: updateCart}}/>
       <Content/>
-      <User appHandler={setLoggedIn}/>
-      <p>my local value is {isLoggedIn ? 'Yes' : 'No'}</p>
+      <p>State - isLoggedIn: {user.isLoggedIn ? 'Yes' : 'No'}</p>
       {/*<Footer/>*/}
     </>
   )

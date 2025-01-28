@@ -1,12 +1,15 @@
 import {useState} from 'react';
-import {Login} from './helper/LoginSubmit';
+import {UserInterface, UserProps} from './User.tsx';
 import '../../assets/style/Platform.css'
 import '../../assets/style/Button.css'
 import '../../assets/style/Checkbox.css'
 
-const UserLogin = () => {
+const UserLogin = (userProps: UserProps) => {
   const [checked, setChecked] = useState(true);
 
+  if (userProps) {
+    console.log(userProps.user.username);
+  }
   return (
     <div id='user-login' className='platform hidden'>
       <div className='title'>Login</div>
@@ -29,10 +32,20 @@ const UserLogin = () => {
           </svg>
           <input type='password' placeholder='Password' autoComplete='off'
                  onKeyDown={(event) => {
-                   if (event.key === 'Enter') { Login(null) }
+                   if (event.key === 'Enter' && validate()) {
+                     const user = Login()
+                     if (user && userProps.appHandler) {
+                       userProps.appHandler(user)
+                     }
+                   }
                  }}/>
-          <div className='field-submit' onClick={(event) => {
-            if (event) { Login(event) }
+          <div className='field-submit' onClick={() => {
+            if (validate()) {
+              const user = Login()
+              if (user && userProps.appHandler) {
+                userProps.appHandler(user)
+              }
+            }
           }}>
             <svg fill='none' height='24' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round'
                  strokeWidth='1' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'>
@@ -43,12 +56,12 @@ const UserLogin = () => {
         </div>
       </div>
       <button className='button submit'
-              onClick={(event) => {
-                setTimeout(function () {
-                  Login(event)
-                }, 100)
-                if (event) {
-                  event.stopPropagation()
+              onClick={() => {
+                if (validate()) {
+                  const user = Login()
+                  if (user && userProps.appHandler) {
+                    userProps.appHandler(user)
+                  }
                 }
               }}>Login
       </button>
@@ -67,4 +80,32 @@ const UserLogin = () => {
     </div>
   )
 }
+
+const Login = (): UserInterface => {
+  const user: UserInterface = {
+    username: 'guest',
+    isLoggedIn: false,
+  }
+
+  if (user) {
+    const thisComponent = document.querySelector("#user-login")!
+    const username = (thisComponent.querySelector('input[type=text]') as HTMLInputElement).value;
+    const password = (thisComponent.querySelector('input[type=password]') as HTMLInputElement).value;
+
+    if (username && password) {
+      user.isLoggedIn = true
+      user.username = username
+    }
+    thisComponent.classList.add('hidden')
+  }
+  return user
+}
+
+function validate(): boolean {
+  const thisComponent = document.querySelector("#user-login")!
+  const username = (thisComponent.querySelector('input[type=text]') as HTMLInputElement).value;
+  const password = (thisComponent.querySelector('input[type=password]') as HTMLInputElement).value;
+  return (username.length > 0 && password.length > 0)
+}
+
 export default UserLogin;

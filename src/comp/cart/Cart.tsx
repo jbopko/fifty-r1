@@ -1,9 +1,22 @@
 import './Cart.css'
-import {Component} from 'react';
 
-class Cart extends Component {
-  render() {
-    return <div id='cart'>
+export interface CartProps {
+  appHandler: (input: CartInterface) => void;
+  cart: CartInterface;
+}
+
+export interface CartInterface {
+  items: string[],
+  watching?: string[],
+}
+
+
+const Cart = (cart: CartInterface) => {
+  if (cart) {
+    console.log(`Cart contains ${cart.items.length} items`);
+  }
+  return (
+    <div id='cart'>
       <div id='cart-hasItems'>false</div>
       <div id='cart-items'>
         <div className='cart-item'>1</div>
@@ -11,8 +24,7 @@ class Cart extends Component {
         <div className='cart-item'>3</div>
       </div>
       <div id='cart-count'>0</div>
-    </div>;
-  }
+    </div>
+  );
 }
-
 export default Cart;

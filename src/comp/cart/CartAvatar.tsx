@@ -1,5 +1,6 @@
 import {MouseEvent} from 'react';
 import '../../assets/style/Card.css'
+import {CartProps} from './Cart.tsx';
 
 function clickAvatar(event: MouseEvent<HTMLDivElement, Event>) {
   const cart = document.querySelector("#cart")
@@ -15,7 +16,11 @@ function clickAvatar(event: MouseEvent<HTMLDivElement, Event>) {
   if (event) {event.stopPropagation()}
 }
 
-const CartAvatar = () => {
+const CartAvatar = (props: CartProps) => {
+  if (props) {
+    props.cart.items.push('Something')
+  }
+
   return (
     <div id='cart-avatar' className='card' onClick={(event) => {
       clickAvatar(event)
