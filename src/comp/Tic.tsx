@@ -1,4 +1,5 @@
 import {MouseEventHandler, useState} from 'react';
+import '../assets/style/Button.css'
 
 interface SquareParams {
   value: string;
@@ -13,7 +14,7 @@ interface BoardParams {
 
 function Square({value, onSquareClick}: SquareParams) {
   return (
-    <button className='square' onClick={onSquareClick}>
+    <button className='square button' onClick={onSquareClick}>
       {value}
     </button>
   );
@@ -34,16 +35,17 @@ function Board({xIsNext, squares, onPlay}: BoardParams) {
   }
 
   const winner = calculateWinner(squares);
-  let status;
+
+  // let status;
   if (winner) {
-    status = 'Winner: ' + winner;
+    // status = 'Winner: ' + winner;
   } else {
-    status = 'Next player: ' + (xIsNext ? 'X' : 'O');
+    // status = 'Next player: ' + (xIsNext ? 'X' : 'O');
   }
+  {/*<div className='status'>{status}</div>*/}
 
   return (
     <>
-      <div className='status'>{status}</div>
       <div className='board-row'>
         <Square value={squares[0]} onSquareClick={() => handleClick(0)}/>
         <Square value={squares[1]} onSquareClick={() => handleClick(1)}/>
@@ -91,7 +93,7 @@ export default function Game() {
     }
     return (
       <li key={move}>
-        <button onClick={() => jumpTo(move)}>{description}</button>
+        <button className='button' onClick={() => jumpTo(move)}>{description}</button>
       </li>
     );
   });

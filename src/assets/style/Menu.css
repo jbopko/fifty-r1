@@ -1,6 +1,7 @@
 .menu {
   white-space: nowrap;
   text-transform: uppercase;
+  cursor: pointer;
 
   > .title {
     margin: 0;

@@ -1,23 +1,19 @@
-#user {
-  display: none;
-}
-
 #user-profile {
-  position: absolute;
-  z-index: 1;
-  width: 250px;
-  top: 2rem;
   right: 0;
+  padding: 0 1rem;
+  text-align: center;
 
   & .button.submit {
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
 
   & img {
     border-radius: 50%;
     box-shadow: var(--shadow);
     object-fit: contain;
-    width: inherit;
+    width: 90%;
+    padding: 0.25rem;
+    background-color: var(--background);
   }
 
   & #account-summary-manage {
@@ -26,31 +22,17 @@
     align-content: end;
   }
 
-  & #btn-logout { flex: 1; }
-}
-
-#user-login-other {
-  text-align: center;
-  top: 2rem;
-}
-
-#user-login {
-  position: absolute;
-  z-index: 1;
-  width: 250px;
-  top: 2rem;
-  right: 0;
-  padding: 1rem;
-
-  .fields {
-    margin: 1rem 0 3rem 0;
-
-    .field {
-      margin: 2rem 0;
-    }
+  & .title {
+    margin-bottom: 2rem;
   }
 }
 
-#user-avatar {
-}
+#user-login {
+  .fields {
+    margin: 1rem 0 2rem 0;
 
+    .field {
+      margin: 1rem 0;
+    }
+  }
+}

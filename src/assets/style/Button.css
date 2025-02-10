@@ -7,11 +7,9 @@
   box-shadow: var(--shadow);
   outline: var(--border);
 
-  position: relative;
-  margin: 0;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  min-height: 40px;
+  height: fit-content;
 
   text-align: center;
   text-transform: uppercase;
@@ -20,14 +18,13 @@
 
   border: none;
 
-  transform: translateY(0px);
   transition: all 50ms linear;
   touch-action: manipulation;
 
   &.submit {
     font-size: large;
     font-weight: 400;
-    width: 100%;
+    width: inherit;
   }
 
   &.warn,
@@ -51,20 +48,5 @@
 
   &:hover {
     opacity: 90%;
-  }
-
-  &.notified {
-    > .badge {
-      color: var(--text);
-    }
-  }
-
-  > .badge {
-    position: absolute;
-    top: 0;
-    right: 0.5rem;
-    font-size: small;
-    font-weight: bold;
-    color: var(--hlt);
   }
 }

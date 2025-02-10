@@ -1,42 +1,36 @@
-import {FocusEvent, MouseEvent} from 'react'
 import '../../assets/style/Field.css'
 import './Search.css'
+import {KeyboardEvent, MouseEvent} from 'react';
+import {SvgSubmitArrow} from '../svg/Svgs.tsx';
 
-function SearchNow(event: MouseEvent<HTMLDivElement, Event>) {
-  const searchPlatform: HTMLDivElement = document.querySelector('#search-platform')!
-  const field = searchPlatform.querySelector('.field')
-  const theInput: HTMLInputElement = field!.querySelector('input')!
-  const queryStr = theInput!.value
-  if (queryStr.length > 3) {
-    console.log(`The query is ${queryStr} and the event came from ${field}`)
-  }
-  if (event) {
-    event.stopPropagation()
-    theInput?.select()
-  } else {
-    console.log('Bad input')
-  }
-  theInput!.select()
+export function SearchNow(e: MouseEvent<Element, Event> | KeyboardEvent<HTMLInputElement>) {
+  e.stopPropagation()
+  e.preventDefault()
+  const popup = document.getElementById('search-platform')!
+  const input: HTMLInputElement = popup.querySelector('input[type=text]')!
+  console.log(`Searching: ${input.value!.toUpperCase()}`)
+
+  input.select()
+  setTimeout(() => {
+    input.value = ''
+    input.blur()
+  }, 3000)
+  setTimeout(() => {
+    popup.classList.add('hidden')
+  }, 4000)
+  // return ['[-_-] -=- [-_-]']
 }
 
-function blurInput(event: FocusEvent<HTMLInputElement, Element>) {
-  const thisComponent = document.querySelector('#search-platform .field')
-  const theInput = thisComponent!.querySelector('input')
-  const theValue = theInput!.value
-
-  if (theValue.length === 0) {
-    setTimeout(() => {
-      console.log(theValue)
-    }, 100)
-  }
-  if (event) {
-    event.stopPropagation()
-  }
-}
+// function blurInput(event: FocusEvent<HTMLInputElement, Element>) {
+//   if (event) {
+//     // event.stopPropagation()
+//     // event.preventDefault()
+//   }
+// }
 
 const Search = () => {
   return (
-    <div id='search-platform' className='platform hidden'>
+    <div id='search-platform' className='platform left hidden'>
       <div className='title'>Search</div>
       <div className='field'>
         <svg className='svg-search' xmlns='http://www.w3.org/2000/svg'
@@ -46,20 +40,12 @@ const Search = () => {
           <path d='m21 21-4.3-4.3'/>
         </svg>
         <input className='' type='text' placeholder='...' autoComplete='off'
-               onBlur={(event) => {
-                 blurInput(event)
+               onKeyDown={(event) => {
+                 if (event.key === 'Enter') {
+                   SearchNow(event)
+                 }
                }}/>
-        <div className='field-submit'
-             onClick={(event) => {
-               if (event) {
-                 SearchNow(event)
-               }
-             }}>
-          <svg fill='none' height='24' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round'
-               strokeWidth='1' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'>
-            <path d='m9 18 6-6-6-6'></path>
-          </svg>
-        </div>
+        <SvgSubmitArrow onClick={SearchNow}/>
         <span className='hidden'>Search</span>
       </div>
     </div>

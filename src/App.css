@@ -46,27 +46,26 @@
     display: flex;
     flex-flow: row wrap;
   }
-
-  &.isLoggedIn {
-    & #user-avatar > .spinner {
-      transform: rotateX(180deg);
-    }
-  }
-
-  &.hasItems {
-    & #cart-avatar > .spinner {
-      transform: rotateX(180deg);
-    }
-  }
 }
 
 .invisibleForm {
-  position: absolute;
-  height: 0;
-  width: 0;
 
-  &.right {
-    right: 0;
+  position: relative;
+
+  > .platform {
+    position: absolute;
+    z-index: 1;
+    top: 1rem;
+    margin: 0;
+    width: 250px;
+
+    &.left {
+      left: -1rem;
+    }
+
+    &.right {
+      right: -1rem;
+    }
   }
 
   & .links {
@@ -165,13 +164,14 @@
 
 .badge {
   position: absolute;
-  top: 0;
-  right: 2px;
+  top: -0.25rem;
+  right: 0.25rem;
   font-size: x-small;
   color: var(--background);
   background-color: var(--text);
-  padding: 1px 4px;
+  padding: 0 3px;
   border-radius: 50%;
+  /*border: var(--hlt) 1px solid*/
 }
 
 

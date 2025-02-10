@@ -1,7 +1,7 @@
-import {UserInterface, UserProps} from './User.tsx';
 import '../../assets/style/Platform.css'
 import '../../assets/style/Button.css'
 import '../../assets/style/Checkbox.css'
+import {UserInterface, UserProps} from './UserAvatar';
 
 const UserProfile = (userProps: UserProps) => {
   if (userProps) {
@@ -11,7 +11,7 @@ const UserProfile = (userProps: UserProps) => {
     <div id='user-profile' className='platform hidden'>
       <div className='title'>jbopko&#64;gmail.com</div>
       <img src='src/assets/img/profile.png' alt='Jeremiah'/>
-      <div className='title'>Jeremiah</div>
+      <div>Jeremiah</div>
       <button className='button submit'
               onClick={() => {
                 const user = Logout()

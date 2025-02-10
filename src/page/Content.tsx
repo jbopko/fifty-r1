@@ -1,14 +1,23 @@
 import './Content.css'
 import '../assets/style/Platform.css'
-import Game from '../comp/Tic.tsx';
+import {AddToCart, CartParams} from '../comp/cart/CartAvatar.tsx';
+import '../assets/style/Button.css'
+import {UserProps} from '../comp/user/UserAvatar.tsx';
 
-// import CartSummary from '../routes/form/CartSummary';
+interface ContentProps {
+  userProps: UserProps;
+  cartProps: CartParams;
+}
 
-const Content = () => {
+const Content = (props: ContentProps) => {
+  if (props.userProps !== undefined) {
+    // console.log('console')
+  }
   return (
     <div id='content'>
-      <Game/>
-      {/*<AddToCart/>*/}
+      <AddToCart
+        items={props.cartProps.items}
+        update={props.cartProps.update}/>
     </div>
   )
 }

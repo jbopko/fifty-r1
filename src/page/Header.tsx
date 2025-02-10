@@ -1,24 +1,25 @@
 import "./Header.css";
 import "../comp/user/User.css";
-import {CartProps} from '../comp/cart/Cart';
-import CartAvatar from '../comp/cart/CartAvatar';
+import CartAvatar, {CartParams} from '../comp/cart/CartAvatar';
 import CartSummary from '../comp/cart/CartSummary';
 import Demos from '../comp/Demos';
 import Search from '../comp/search/Search';
 import SearchAvatar from '../comp/search/SearchAvatar';
-import {UserProps} from '../comp/user/User';
-import UserAvatar from '../comp/user/UserAvatar';
+import UserAvatar, {UserProps} from '../comp/user/UserAvatar';
 import UserLogin from '../comp/user/UserLogin';
-import UserProfile from '../comp/user/UserProfile.tsx';
+import UserProfile from '../comp/user/UserProfile';
 import PageLink from '../routes/PageLink';
 import {Navigate} from './Navigate';
 
 interface HeaderProps {
   userProps: UserProps;
-  cartProps: CartProps;
+  cartProps: CartParams;
 }
 
 const Header = (props: HeaderProps) => {
+  const cart = props.cartProps;
+  // const user = props.userProps;
+
   return (
     <div id='header'>
       <div id='header-left'>
@@ -39,13 +40,9 @@ const Header = (props: HeaderProps) => {
       <div id='header-right'>
         <div id='top-right'>
           <div className='invisibleForm right'>
-            <CartSummary
-              appHandler={props.cartProps.appHandler}
-              cart={props.cartProps.cart}/>
+            <CartSummary items={cart.items} update={cart.update}/>
           </div>
-          <CartAvatar
-            appHandler={props.cartProps.appHandler}
-            cart={props.cartProps.cart}/>
+          <CartAvatar items={cart.items} update={cart.update}/>
           <div className='invisibleForm right'>
             <UserLogin
               appHandler={props.userProps.appHandler}

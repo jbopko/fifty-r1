@@ -1,8 +1,8 @@
 import {useState} from 'react';
-import {UserInterface, UserProps} from './User.tsx';
 import '../../assets/style/Platform.css'
 import '../../assets/style/Button.css'
 import '../../assets/style/Checkbox.css'
+import {UserInterface, UserProps} from './UserAvatar';
 
 const UserLogin = (userProps: UserProps) => {
   const [checked, setChecked] = useState(true);
@@ -11,7 +11,7 @@ const UserLogin = (userProps: UserProps) => {
     console.log(userProps.user.username);
   }
   return (
-    <div id='user-login' className='platform hidden'>
+    <div id='user-login' className='platform right hidden'>
       <div className='title'>Login</div>
       <div className='fields'>
         <div className='field'>
